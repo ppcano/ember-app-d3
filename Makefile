@@ -1,9 +1,10 @@
-PORT ?= 8000
 
 serve:
 	
 	rm -rf dist tmp
-	PORT=9000 RUNNING_TEST=false node server/server.js
+	RUNNING_TEST=false \
+	PORT=9000 \
+		node server/server.js
 
 test:
 	
