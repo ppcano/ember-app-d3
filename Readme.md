@@ -9,6 +9,10 @@ Demo app using [Broccoli](https://github.com/joliss/broccoli) and submodules
 Ember packages are included as git submodules (providing easier debugging), you must initialize and update submodules.
 
 ```sh
+git clone --recursive git@github....
+
+or
+
 git submodule update --init
 ```
 
@@ -18,7 +22,3 @@ git submodule update --init
 
 - npm install
 - `make serve` or `make test` (run the test suite)
-
-
-"broccoli": "0.12.0",
-"broccoli": "git://github.com/ppcano/broccoli.git#should-not-stat-dir",
