@@ -33,7 +33,7 @@ var handlebars = match('app', 'vendor/ember/handlebars-v1.3.0.js');
 handlebars = append(handlebars, {before: "function require() {\n", after: "return Handlebars;}\n"});
 
 
-var templateCompilerTree = pickFiles('app/submodules/ember.js/packages_es6/ember-handlebars-compiler/lib', {
+var templateCompilerTree = pickFiles('app/submodules/ember.js/packages/ember-handlebars-compiler/lib', {
   files: ['main.js'],
   srcDir: '/',
   destDir: '/'
@@ -44,7 +44,7 @@ templateCompilerTree = mergeTrees([templateCompilerTree, handlebars]);
 templateCompilerTree = concatFilter(templateCompilerTree, {inputFiles: ['**/*.js'], outputFile: '/'+templateCompilerFile});
 
 
-
+console.log('env brocfile:   '+process.env.RUNNING_TEST);
 var runningTest = process.env.RUNNING_TEST === 'true';
 
 
@@ -74,9 +74,9 @@ var emberModules = ['container','ember-application','ember-handlebars-compiler',
 emberModules.push('ember-extension-support');
 emberModules.push('ember-debug');
 if (runningTest) emberModules.push('ember-testing');
-emberModules = match('app', "submodules/ember.js/packages_es6/{"+emberModules.join(',')+"}/lib/**/*.js");
+emberModules = match('app', "submodules/ember.js/packages/{"+emberModules.join(',')+"}/lib/**/*.js");
 emberModules = es6Filter(emberModules, { moduleName: function(filePath) {
-                    return filePath.replace('app/submodules/ember.js/packages_es6/','')
+                    return filePath.replace('app/submodules/ember.js/packages/','')
                                    .replace('lib/','')
                                    .replace(/.js$/, '')
                                    .replace(/\/main$/, '');
