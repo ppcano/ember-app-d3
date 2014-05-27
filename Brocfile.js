@@ -186,6 +186,13 @@ if ( runningTest ) {
 
   trees = [publicFiles, trees, styles, emberTests];
 
+  var confTests = pickFiles('app/submodules/data/tests', {
+    srcDir: '/',
+    files: ['ember_configuration.js', 'ember-data-setup.js'],
+    destDir: '/source/' });
+
+  trees.push(confTests);
+
 } else {
 
   var index = pickFiles('server', {
