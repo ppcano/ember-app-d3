@@ -46,6 +46,7 @@ templateCompilerTree = concatFilter(templateCompilerTree, {inputFiles: ['**/*.js
 
 console.log('env brocfile:   '+process.env.RUNNING_TEST);
 var runningTest = process.env.RUNNING_TEST === 'true';
+var testType = process.env.TEST_TYPE;
 
 
 
@@ -150,7 +151,7 @@ if ( runningTest ) {
 
   trees.push(testsUtils);
 
-  var emberTests = match('app', 'tests/tests/**/*_test.js');
+  var emberTests = match('app', 'tests/tests/'+testType+'/**/*_test.js');
   emberTests = concatFilter(emberTests, {inputFiles: ['**/*.js'], outputFile:'/tests.js'});
 
 
@@ -184,7 +185,15 @@ if ( runningTest ) {
     files: ['*'],
     destDir: '/' });
 
-  trees = [publicFiles, trees, styles, emberTests];
+
+  var setup = pickFiles('app', {
+    srcDir: '/tests/tests',
+    files: [testType+'_setup.js'],
+    destDir: '/' });;
+
+  setup = concatFilter(setup, {inputFiles: ['**/*.js'],outputFile:'/setup.js'});
+
+  trees = [publicFiles, trees, styles, emberTests, setup];
 
   var confTests = pickFiles('app/submodules/data/tests', {
     srcDir: '/',

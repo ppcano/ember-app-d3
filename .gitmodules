@@ -7,3 +7,6 @@
 [submodule "app/submodules/data"]
 	path = app/submodules/data
 	url = git@github.com:emberjs/data.git
+[submodule "app/submodules/ember-jj-abrams-resolver"]
+	path = app/submodules/ember-jj-abrams-resolver
+	url = git@github.com:stefanpenner/ember-jj-abrams-resolver.git

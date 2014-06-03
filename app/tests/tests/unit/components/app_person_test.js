@@ -3,10 +3,6 @@ var run = Ember.run;
 moduleForComponent('app-person', 'app-person', {
   teardown: function() {
 
-    if ( window.App ) { 
-      console.log('app-person.reset ....');
-      App.reset();
-    }
   }
 });
 /*

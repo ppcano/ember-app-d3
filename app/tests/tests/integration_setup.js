@@ -7,17 +7,6 @@ require('ember-qunit-utils');
 var AppResolver = require('app/system/resolver')['default'];
 
 
-/* unit test does not really need the application when https://github.com/stefanpenner/ember-jj-abrams-resolver/issues/41
- 
-  Ember.setupForTesting();
-  var resolver = AppResolver.create({
-    modulePrefix: 'app'
-  });
-
- TODO:
-   make test unit
-   make test integration
-*/
 
 
 Ember.ENV.LOG_MODULE_RESOLVER = false;
@@ -34,9 +23,3 @@ var resolver = AppResolver.create({
   namespace: namespace
 });
 
-setResolver(resolver);
-
-
-//
-//
-//
