@@ -1,5 +1,4 @@
 
-//import testContext from 'ember-qunit/test-context';
 
 moduleForModel('category', 'model: category', {
 
@@ -7,9 +6,6 @@ moduleForModel('category', 'model: category', {
     container.register('adapter:application', DS.RESTAdapter);
   },
   teardown: function() {
-    if ( window.App ) { 
-      App.reset();
-    }
   }
 });
 /*
