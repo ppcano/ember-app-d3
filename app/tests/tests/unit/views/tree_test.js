@@ -1,9 +1,6 @@
 
 moduleForView('tree', 'view:tree', {
   teardown: function() {
-    if ( window.App ) { 
-      App.reset();
-    }
   }
 });
 
