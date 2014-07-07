@@ -12,6 +12,10 @@ module.exports = function() {
 
   var signalsTrapped = false;
   if (!signalsTrapped) {
+
+    process.on('uncaughtException', function (err) {
+      console.log(err);
+    });
     // We register these so the 'exit' handler removing temp dirs is called
     process.on('SIGINT', function () {
       process.exit(1);
@@ -25,10 +29,9 @@ module.exports = function() {
 
   var watcher = new Watcher(builder);
   watcher.on('change', function(results) {
-    console.log('chanding...');
+    console.log(' >> changing');
   });
   watcher.on('error', function(err) {
-    console.log('error...');
     console.log(err);
   });
   return watcher;

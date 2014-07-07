@@ -5,6 +5,7 @@ var mergeTrees = require('broccoli-merge-trees'),
     fs = require('fs'),
     wrapFiles = require('broccoli-wrap'),
     match = require('./broccoli/match'),
+    smash = require('./broccoli/smash'),
     iife = require('./broccoli/iife'),
     append = require('./broccoli/append'),
     concatFilter = require('broccoli-concat'),
@@ -48,10 +49,6 @@ console.log('env brocfile:   '+process.env.RUNNING_TEST);
 var runningTest = process.env.RUNNING_TEST === 'true';
 var testType = process.env.TEST_TYPE;
 
-
-
-
-
 // pickFiles
 var app = match('app/app', '**/*.js');
 var emberData = match('app/submodules/data/packages', '*/lib/**/*.js');
@@ -60,9 +57,13 @@ var emberVendoredPackages = match('app/submodules/ember.js/packages', '{backburn
 var vendoredPackages = match('app/vendor/packages', '*.js');
 var templates = match('app/templates', '**/*.handlebars');
 var emberMain = match('app/shims', 'ember.js');
+var d3 = match('app/submodules/d3/src', '**/*.js');
 
 
 
+// --- d3
+
+d3 = smash(d3, {input: 'app/submodules/d3/src/d3.js'});
 
 // --- templates
 templates = templateCompiler(templates, {module: true});
@@ -123,7 +124,7 @@ emberData = es6Filter(emberData, { moduleName: function(filePath) {
 
 
 // compose and build app.js
-var trees = [app, emberData, emberResolver, emberVendoredPackages, emberMain, emberModules, handlebarsRuntime, vendoredPackages, templates];
+var trees = [app, emberData, emberResolver, emberVendoredPackages, emberMain, emberModules, handlebarsRuntime, vendoredPackages, templates, d3];
 
 // ember-qunit
 

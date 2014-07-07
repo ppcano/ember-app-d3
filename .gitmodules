@@ -10,3 +10,6 @@
 [submodule "app/submodules/ember-jj-abrams-resolver"]
 	path = app/submodules/ember-jj-abrams-resolver
 	url = git@github.com:stefanpenner/ember-jj-abrams-resolver.git
+[submodule "app/submodules/d3"]
+	path = app/submodules/d3
+	url = git@github.com:mbostock/d3.git

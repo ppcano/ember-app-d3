@@ -17,6 +17,7 @@
     "rsvp": "~3.0.6",
     "es6-module-transpiler": "~0.4.0",
     "broccoli-wrap": "^0.0.2",
+    "smash": "^0.0.12",
     "broccoli-filter": "^0.1.6",
     "extend": "~1.2.1",
     "resolve": "~0.6.2",
