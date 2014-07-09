@@ -1,3 +1,18 @@
 a.active {
   color: green;
 }
+
+
+
+.menu-item {
+  float: left;
+}
+
+.menu-item:not(:first-child) {
+  padding-left: 10rem;
+}
+
+rect.bar {
+  margin-left: 1px;
+
+}

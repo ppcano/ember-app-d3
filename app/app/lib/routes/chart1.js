@@ -1,4 +1,4 @@
-var AccountRoute = Ember.Route.extend({
+var Chart1Route = Ember.Route.extend({
 
   model: function() {
     console.log('!!>>>>>>kjkjkfetch account model.');
@@ -6,4 +6,4 @@ var AccountRoute = Ember.Route.extend({
 
 });
 
-export default AccountRoute;
+export default Chart1Route;

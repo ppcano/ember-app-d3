@@ -1,14 +1,10 @@
-Application: {{text}}
+
+<div class="menu">
+  {{#link-to 'index' class='menu-item' }}Index{{/link-to}}
+  {{#link-to 'chart1' class='menu-item' }}Chart1{{/link-to}}
+  {{#link-to 'chart2' class='menu-item' }}Chart2{{/link-to}}
+</div>
 
 <br/>
-{{#link-to 'account' elementId='account-link'}}Account{{/link-to}}
-<br/>
-{{#link-to 'settings'}}Settings{{/link-to}}
-<br/>
-<br/>
-
-{{view 'tree'}}
-
-{{app-person}}
 
 {{outlet}}

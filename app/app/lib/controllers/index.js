@@ -1,4 +1,4 @@
-var IndexController = Ember.Controller.extend({
+var IndexController = Ember.ArrayController.extend({
   text: 'indexController'
 });
 
